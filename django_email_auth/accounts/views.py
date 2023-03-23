@@ -6,7 +6,9 @@ from django.conf import settings
 from .models import *
 from django.core.mail import send_mail
 from django.contrib.auth import authenticate, login
+from django.contrib.auth.decorators import login_required
 
+@login_required(login_url='/')
 def home(request):
     return render(request,'accounts/home.html')
 
